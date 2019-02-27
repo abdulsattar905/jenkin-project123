@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script src ="/js/author.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.2.4.js"></script> -->
+<script>
+$(document).ready(function(){
+	$(".deleteFun").click(function(){
+		var authId = 
+		alert("Delete");
+	});
+});
+</script>
+</head>
+<body align="center" bgcolor="cyan">
+
+	<h1>All Author's Details Table</h1>
+	<button onclick="window.location.href = 'home'" >Add Author</button>
+	<button onclick="window.location.href = 'home'" >Add Book</button>
+	<table style="width:50%" border="1" align="center" text-align= "center">
+	<tr>
+    	<th>Id</th><th>Name</th><th>Action</th>      
+  	</tr>
+  	<div th:each="author : ${authorlist}">
+  	<tr>
+    <td><span th:text="${author.id}"></span></td>
+    <td><span th:text="${author.name}"></span></td>
+    
+  	<td><a th:href="@{/edit/{id}(id=${author.id})}">Edit </a> | <a th:href="@{/delete/{id}(id=${author.id})}" onclick="return confirm('Are you sure you want to delete this item?');">Delete </a></td>
+  	</tr>	
+</body>
+</html>
